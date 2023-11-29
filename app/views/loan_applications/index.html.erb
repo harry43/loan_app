@@ -1,0 +1,19 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Loan applications</h1>
+
+<% unless @loan_applications.empty? %>
+  <table id="loan_applications" class="table">
+    <tr>
+      <th>Sr.</th>
+      <th>Business</th>
+      <th>Established Year</th>
+      <th>Account Provider</th>
+      <th>Loan Amount</th>
+      <th>Action</th>
+    </tr>
+    <%= render partial: "loan_application", collection: @loan_applications %>
+  </div>
+<% end %>  
+
+<%= link_to "New loan application", new_loan_application_path %>

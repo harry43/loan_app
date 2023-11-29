@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_name: MyString
+  established_year: MyString
+  account_provider: MyString
+  amount: 1.5
+
+two:
+  business_name: MyString
+  established_year: MyString
+  account_provider: MyString
+  amount: 1.5

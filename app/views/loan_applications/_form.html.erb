@@ -1,0 +1,50 @@
+<%= form_with(model: loan_application) do |form| %>
+  <div class="row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <div class="row">
+        <div class="mb-6">
+          <% if loan_application.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(loan_application.errors.count, "error") %> prohibited this loan_application from being saved:</h2>
+        
+              <ul>
+                <% loan_application.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>  
+        </div>
+      </div>  
+      <div class="row">
+        <div class="mb-6">
+          <%= form.label :business_name, style: "display: block" %>
+          <%= form.text_field :business_name, class: "form-control" %>
+        </div>
+
+        <div class="mb-6">
+          <%= form.label :established_year, style: "display: block" %>
+          <%= form.text_field :established_year, class: "form-control" %>
+        </div>
+
+        <div class="mb-6">
+          <%= form.label :account_provider, style: "display: block" %>
+          <%= form.select :account_provider, options_for_select(LoanApplication::ACCOUNT_PROVIDER, loan_application.account_provider), {include_blank: "Select.."}, {class: "form-select"} %>
+        </div>
+
+        <div class="mb-6">
+          <%= form.label :amount, style: "display: block" %>
+          <%= form.text_field :amount, class: "form-control" %>
+        </div>
+      <div>
+      <div class="row">
+        <div class="mb-6">
+          <br/>
+          <%= form.submit "Get Balance Sheet", class: "btn btn-primary" %>
+        </div>
+      </div>
+    </div>
+    <div class="col-4"></div>
+  </div>
+<% end %>
