@@ -1,10 +1,28 @@
 <p style="color: green"><%= notice %></p>
+<p><%= link_to "Back to loan applications", loan_applications_path %></p>
 
-<%= render @loan_application %>
+<p><b>Business Name: </b><%= @loan_application.business_name %></p>
+<p><b>Established Year: </b><%= @loan_application.established_year %></p>
+<p><b>Account Provider: </b><%= @loan_application.account_provider %></p>
+<p><b>Loan Amount: </b><%= @loan_application.amount %></p>
 
-<div>
-  <%= link_to "Edit this loan application", edit_loan_application_path(@loan_application) %> |
-  <%= link_to "Back to loan applications", loan_applications_path %>
+<h2>Balance sheet</h2>
+<table class="table">
+  <tr>
+    <th>Year</th>
+    <th>Month</th>
+    <th>Profit/Loss</th>
+    <th>Assets Value</th>
+  </tr>
 
-  <%= button_to "Destroy this loan application", @loan_application, method: :delete %>
-</div>
+  <% @balance_sheet.each do |sheet| %>
+    <tr>
+      <td><%= sheet[:year] %></td>
+      <td><%= sheet[:month] %></td>
+      <td class="<%= sheet[:profitOrLoss] >= 0 ? 'text-success' : 'text-danger' %>">
+        <strong><%= sheet[:profitOrLoss] %></strong>
+      </td>
+      <td><%= sheet[:assetsValue] %></td>
+    </tr>
+  <% end %>
+</table>

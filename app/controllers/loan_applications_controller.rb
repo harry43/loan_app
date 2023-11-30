@@ -8,6 +8,12 @@ class LoanApplicationsController < ApplicationController
 
   # GET /loan_applications/1 or /loan_applications/1.json
   def show
+    accounting_software = ::AccountingSoftware.new(
+      business_name: @loan_application.business_name,
+      account_provider: @loan_application.account_provider,
+    )
+
+    @balance_sheet = accounting_software.get_balance_sheet
   end
 
   # GET /loan_applications/new
