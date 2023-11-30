@@ -15,17 +15,17 @@ class PreAssessment
   private
 
   def calculate_assessment
-    return 100 if annual_profit > 0 && average_assets_value > loan_amount
-    return 60 if annual_profit > 0
+    return 100 if annual_profit.positive? && average_assets_value > loan_amount
+    return 60 if annual_profit.positive?
 
     20
   end
 
   def annual_profit
-    balance_sheet.sum {|h| h["profitOrLoss"] }
+    balance_sheet.sum { |h| h['profitOrLoss'] }
   end
 
   def average_assets_value
-    balance_sheet.sum {|h| h["assetsValue"] } / 12
+    balance_sheet.sum { |h| h['assetsValue'] } / 12
   end
 end

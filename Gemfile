@@ -34,6 +34,7 @@ group :test do
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'rails-controller-testing'
+  gem 'rspec-its'
   gem 'selenium-webdriver'
   gem 'shoulda-matchers'
   gem 'webdrivers'

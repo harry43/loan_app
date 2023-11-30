@@ -1,0 +1,74 @@
+[
+    {
+      "year": 2023,
+      "month": 11,
+      "profitOrLoss": 2000,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 10,
+      "profitOrLoss": 2000,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 9,
+      "profitOrLoss": 2000,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 8,
+      "profitOrLoss": -2000,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 7,
+      "profitOrLoss": 0,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 6,
+      "profitOrLoss": 0,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 5,
+      "profitOrLoss": 0,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 4,
+      "profitOrLoss": 0,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 3,
+      "profitOrLoss": 0,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 2,
+      "profitOrLoss": 0,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2023,
+      "month": 1,
+      "profitOrLoss": 4325,
+      "assetsValue": 12000
+    },
+    {
+      "year": 2022,
+      "month": 12,
+      "profitOrLoss": -4325,
+      "assetsValue": 12000
+    }
+]
