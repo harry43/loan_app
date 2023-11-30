@@ -27,10 +27,10 @@ RSpec.describe AccountingSoftware do
     let(:sample_balance_sheet) do
       [
         {
-          year: 1989,
-          month: 4,
-          profitOrLoss: 10_000,
-          assetsValue: 222_222
+          "year" => 1989,
+          "month" => 4,
+          "profitOrLoss" => 10_000,
+          "assetsValue" => 222_222
         }
       ]
     end
