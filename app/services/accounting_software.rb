@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class AccountingSoftware
   include ActiveModel::Validations
 
   attr_accessor :business_name, :account_provider
+
   validates :business_name, :account_provider, presence: true
 
   def initialize(params = {})
@@ -11,10 +14,10 @@ class AccountingSoftware
 
   def get_balance_sheet
     return { errors: errors.full_messages } unless valid?
-    
+
     provider.balance_sheet
   rescue StandardError => e
-    return { errors: [e.to_s] }
+    { errors: [e.to_s] }
   end
 
   private
@@ -26,8 +29,7 @@ class AccountingSoftware
   def provider_class
     provider_name = account_provider.downcase.classify
     "AccountProviders::#{provider_name}".constantize
-  rescue => e
-    raise StandardError.new "Provider not implemented: #{account_provider}"
+  rescue StandardError
+    raise StandardError, "Provider not implemented: #{account_provider}"
   end
-
 end

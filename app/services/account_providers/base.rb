@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module AccountProviders
   class Base
     attr_accessor :business_name
@@ -7,7 +9,7 @@ module AccountProviders
     end
 
     def balance_sheet
-      raise NotImplementedError, "Method not implemented"
+      raise NotImplementedError, 'Method not implemented'
     end
   end
 end
