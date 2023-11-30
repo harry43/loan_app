@@ -1,0 +1,8 @@
+FactoryBot.define do
+  factory :loan_application do
+    business_name { Faker::Name.name }
+    established_year { 2023 }
+    amount  { 10000 }
+    account_provider { LoanApplication::ACCOUNT_PROVIDER.sample }
+  end
+end
