@@ -6,9 +6,9 @@
   <td><%= loan_application.amount %></td>
   <td>
     <% if loan_application.status.blank? %>
-      <%= link_to "Review", loan_application_path(loan_application) %>
+      <%= link_to "Review", loan_application_path(loan_application), class: 'btn btn-primary' %>
     <% else %>  
-      <%= loan_application.status %>
+      <span class="text-success"><%= loan_application.status %></span>
     <% end %>
   </td>
 </tr>
