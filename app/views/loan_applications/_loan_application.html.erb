@@ -4,5 +4,11 @@
   <td><%= loan_application.established_year %></td>
   <td><%= loan_application.account_provider %></td>
   <td><%= loan_application.amount %></td>
-  <td><%= link_to "Get Balance Sheet", loan_application_path(loan_application) %></td>
+  <td>
+    <% if loan_application.status.blank? %>
+      <%= link_to "Get Balance Sheet", loan_application_path(loan_application) %>
+    <% else %>  
+      <%= loan_application.status %>
+    <% end %>
+  </td>
 </tr>

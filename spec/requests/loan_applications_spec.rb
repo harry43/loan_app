@@ -59,7 +59,7 @@ RSpec.describe 'LoanApplications', type: :request do
         end.to change(LoanApplication, :count).by(1)
       end
 
-      it 'renders /new page' do
+      it 'redirect to application show page' do
         post loan_applications_url, params: { loan_application: loan_application_params }
         expect(response).to redirect_to(loan_application_url(LoanApplication.last))
       end

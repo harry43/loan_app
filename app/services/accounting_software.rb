@@ -12,7 +12,7 @@ class AccountingSoftware
     @account_provider = params[:account_provider]
   end
 
-  def get_balance_sheet
+  def balance_sheet
     return { errors: errors.full_messages } unless valid?
 
     provider.balance_sheet

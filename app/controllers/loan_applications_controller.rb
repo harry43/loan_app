@@ -14,7 +14,7 @@ class LoanApplicationsController < ApplicationController
       account_provider: @loan_application.account_provider
     )
 
-    @balance_sheet = accounting_software.get_balance_sheet
+    @balance_sheet = accounting_software.balance_sheet
   end
 
   def new
