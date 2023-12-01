@@ -1,4 +1,8 @@
-<p style="color: green"><%= notice %></p>
+<% flash.each do |type, msg| %>
+  <p class="<%= type == 'notice' ? 'text-success' : 'text-danger' %>">
+    <%= msg %>
+  </p>
+<% end %>
 
 <h1>Loan applications</h1>
 

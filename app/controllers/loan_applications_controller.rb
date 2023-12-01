@@ -2,7 +2,7 @@
 
 # Loan Application Controller
 class LoanApplicationsController < ApplicationController
-  before_action :set_loan_application, only: %i[show edit update destroy]
+  before_action :set_loan_application, only: %i[show edit update destroy submit_application]
 
   def index
     @loan_applications = LoanApplication.all
@@ -14,7 +14,7 @@ class LoanApplicationsController < ApplicationController
       account_provider: @loan_application.account_provider
     )
 
-    @balance_sheet = accounting_software.get_balance_sheet
+    @balance_sheet = accounting_software.balance_sheet
   end
 
   def new
@@ -31,6 +31,20 @@ class LoanApplicationsController < ApplicationController
         error_response(format)
       end
     end
+  end
+
+  def submit_application
+    decision_engine = DecisionEngine.new
+    decision_engine.loan_application = DecisionEngineParams.new(loan_application: @loan_application).build
+
+    decision_engine.save
+    @loan_application.update(status: "Submitted")
+    flash[:notice] =
+      "Application submitted successfully with params #{decision_engine.attributes['loan_application']}"
+    redirect_to loan_applications_path
+  rescue => e
+    flash[:error] = e.message
+    redirect_to loan_applications_path
   end
 
   private

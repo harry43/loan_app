@@ -6,7 +6,15 @@
 <p><b>Account Provider: </b><%= @loan_application.account_provider %></p>
 <p><b>Loan Amount: </b><%= @loan_application.amount %></p>
 
-<h2>Balance sheet</h2>
+<br />
+<div class="row">
+  <h2 class="col">Balance sheet</h2>
+  <div class="col align-self-end">
+    <%= button_to "Submit Application", submit_application_loan_application_path(@loan_application), class: "btn btn-success float-end" %>
+  </div>
+</div>
+<br />
+
 <table class="table">
   <tr>
     <th>Year</th>
@@ -15,14 +23,14 @@
     <th>Assets Value</th>
   </tr>
 
-  <% @balance_sheet.each do |sheet| %>
+  <% @balance_sheet.each do |record| %>
     <tr>
-      <td><%= sheet[:year] %></td>
-      <td><%= sheet[:month] %></td>
-      <td class="<%= sheet[:profitOrLoss] >= 0 ? 'text-success' : 'text-danger' %>">
-        <strong><%= sheet[:profitOrLoss] %></strong>
+      <td><%= record["year"] %></td>
+      <td><%= record["month"] %></td>
+      <td class="<%= record['profitOrLoss'] >= 0 ? 'text-success' : 'text-danger' %>">
+        <strong><%= record['profitOrLoss'] %></strong>
       </td>
-      <td><%= sheet[:assetsValue] %></td>
+      <td><%= record["assetsValue"] %></td>
     </tr>
   <% end %>
 </table>
